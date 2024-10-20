@@ -1,10 +1,10 @@
 #!/bin/bash
-#=================================================== =================================================== =====================
+#=================================================== ====================================================== === =====================
 # https://github.com/ophub/amlogic-s9xxx-openwrt
 # 描述：自动为 Amlogic s9xxx 电视盒构建 OpenWrt
 # 功能：DIY脚本（更新feeds后，修改默认IP、主机名、主题、添加/删除软件包等）
 # 源代码仓库：https://github.com/coolsnowwolf/lede / 分支：master
-#=================================================== =================================================== =====================
+#=================================================== ====================================================== ===== === =====================
 
 # ------------------------------ 主源已启动 --------------- ----------------
 #
@@ -12,11 +12,11 @@
 # sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # 添加对armvirt的自动核心支持
-sed -i  's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
+#sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g'寰/lean/autocore/Makefile 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g'寰/lean/autocore/Makefile-i  
 
 #etc/openwrt_release
-sed -i    "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R $(date +%Y.%m.%d) '|g" package/lean/default-settings/files/zzz-default-settings
-echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
+sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R  $(date +%Y.%m.%d)'|g"  package/lean/default-settings/files/zzz-default-settings"s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R $(date +%Y.%m.%d) '|g"包/精益/默认设置/文件/zzz-默认设置
+echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release"DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # 修改默认IP（从192.168.1.1更改为192.168.31.4）
 # sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
